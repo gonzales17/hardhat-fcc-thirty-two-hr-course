@@ -1,0 +1,20 @@
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Swap the comments on the following lines if you don't wish to use zero-installs
+# Documentation here: https://yarnpkg.com/features/zero-installs
+!.yarn/cache
+#.pnp.*
+node_modules/
+.env
+.encryptedKey.json.editorconfig
+.pnp.cjs
+.yarn/
+.yarnrc.yml
+SimpleStorage_sol_SimpleStorage.abi
+SimpleStorage_sol_SimpleStorage.bin
+.encryptedKey.json

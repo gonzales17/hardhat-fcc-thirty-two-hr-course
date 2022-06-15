@@ -10,6 +10,7 @@ const {
 // above is shorthand for:
 // const helperConfig = require("../helper-hardhat-config.js");
 // const networkConfig = helperConfig.NETWORK_CONFIG;
+
 const { verify } = require("../utils/verify");
 
 module.exports = async ({ getNamedAccounts, deployments }) => {
@@ -29,7 +30,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     const fundMe = await deploy("FundMe", {
         from: deployer,
         args: [ethUsdPriceFeedAddr], // contract constructor args
-        log: true,
+        log: true, // causes informational messages to be printed to console during deployment
         waitConfirmations: network.config.blockConfirmations || 1,
     });
 

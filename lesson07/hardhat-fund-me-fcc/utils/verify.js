@@ -1,4 +1,3 @@
-const { entropyToMnemonic } = require("ethers/lib/utils");
 const { run } = require("hardhat");
 
 const verify = async (contractAddress, args) => {

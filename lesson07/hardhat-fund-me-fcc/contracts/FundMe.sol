@@ -51,7 +51,7 @@ contract FundMe {
     }
 
     function fund() public payable {
-        if (!(msg.value.getConversionRate(s_priceFeed) >= MINIMUM_USD)) {
+        if (!(msg.value.getEthPriceInUSD(s_priceFeed) >= MINIMUM_USD)) {
             revert("Must send at least $50 in ETH");
         }
 

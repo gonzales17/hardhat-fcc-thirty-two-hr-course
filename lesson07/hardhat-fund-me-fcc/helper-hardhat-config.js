@@ -18,7 +18,8 @@ const developmentChains = ["hardhat", "localhost"];
 
 // parameters for the mock price feed contract
 const DECIMALS = 8;
-const INITIAL_ANSWER = 1800e8;
+//const INITIAL_ANSWER = 1800e8;
+const INITIAL_ANSWER = 99990e8;
 
 module.exports = {
     NETWORK_CONFIG,

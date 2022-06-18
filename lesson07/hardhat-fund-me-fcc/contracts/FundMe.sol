@@ -33,8 +33,7 @@ contract FundMe {
     }
 
     receive() external payable {
-        //fund();
-        require(3 == 4, "You called receive");
+        fund();
     }
 
     fallback() external payable {

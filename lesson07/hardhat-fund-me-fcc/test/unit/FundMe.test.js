@@ -41,26 +41,36 @@ const { developmentChains } = require("../../helper-hardhat-config");
               });
           });
 
-          /* TODO: write tests for receive and fallback
-    describe("fallback and receive", function () {
-        
-        it("calls receive", async function () {
-            await signer1.sendTransaction({
-                to: fundMe.address,
-                value: "5000000000000000000",
-            });
-        });
+          /* TODO: write tests for receive and fallback */
+          describe("fallback and receive", function () {
+              it("calls receive", async function () {
+                  const initBalance = await fundMe.provider.getBalance(
+                      fundMe.address
+                  );
+                  const result = await signer1.sendTransaction({
+                      to: fundMe.address,
+                      value: "5000000000000000000",
+                  });
+                  await result.wait(1);
+                  const finalBalance = await fundMe.provider.getBalance(
+                      fundMe.address
+                  );
+                  assert.equal(
+                      "5000000000000000000",
+                      (finalBalance - initBalance).toString()
+                  );
+              });
 
-        it("calls fallback", async function () {
-            await signer1.sendTransaction({
-                to: fundMe.address,
-                value: "5000000000000000000",
-                data: "0x01",
-            });
-        });
-        
-    });
-    */
+              it("calls fallback", async function () {
+                  await expect(
+                      signer1.sendTransaction({
+                          to: fundMe.address,
+                          value: "5000000000000000000",
+                          data: "0x01",
+                      })
+                  ).to.be.revertedWith("You called fallback");
+              });
+          });
 
           describe("fund", function () {
               it("Fails if you don't send enough ETH", async function () {

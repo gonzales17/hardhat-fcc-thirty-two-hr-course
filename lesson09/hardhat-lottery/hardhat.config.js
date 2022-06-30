@@ -16,6 +16,10 @@ const RINKEBY_RPC_URL = process.env.RINKEBY_RPC_URL;
 module.exports = {
     defaultNetwork: "hardhat",
     networks: {
+        localhost: {
+            chainId: 31337,
+            blockConfirmations: 1,
+        },
         hardhat: {
             chainId: 31337,
             blockConfirmations: 1,
